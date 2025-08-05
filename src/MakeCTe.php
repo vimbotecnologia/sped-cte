@@ -5325,7 +5325,7 @@ class MakeCTe
             //Inicio RTC-1.07
             $this->dom->addChild(
                 $gIBSCBS,
-                "gitpull",
+                "vIBS",
                 $this->conditionalNumberFormatting($std->gIBSUF_vIBSUF  + $std->gIBSMun_vIBSMun?? null),
                 true,
                 "$identificador Base de cálculo do IBS e CBS (vBC)"
