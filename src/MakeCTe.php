@@ -3068,7 +3068,7 @@ class MakeCTe
                             $this->conditionalNumberFormatting($std->pRedBCOutraUF),
                             false,
                             "$identificador Percentual Red "
-                            . "BC Outra UF"
+                                . "BC Outra UF"
                         );
                     }
                     $this->dom->addChild(
@@ -5045,7 +5045,7 @@ class MakeCTe
             $std->CNPJ,
             true,
             "Informar o CNPJ da pessoa jurídica responsável pelo sistema "
-            . "utilizado na emissão do documento fiscal eletrônico"
+                . "utilizado na emissão do documento fiscal eletrônico"
         );
         $this->dom->addChild(
             $infRespTec,
@@ -5053,7 +5053,7 @@ class MakeCTe
             $std->xContato,
             true,
             "Informar o nome da pessoa a ser contatada na empresa desenvolvedora "
-            . "do sistema utilizado na emissão do documento fiscal eletrônico"
+                . "do sistema utilizado na emissão do documento fiscal eletrônico"
         );
         $this->dom->addChild(
             $infRespTec,
@@ -5061,7 +5061,7 @@ class MakeCTe
             $std->email,
             true,
             "Informar o e-mail da pessoa a ser contatada na empresa "
-            . "desenvolvedora do sistema."
+                . "desenvolvedora do sistema."
         );
         $this->dom->addChild(
             $infRespTec,
@@ -5069,7 +5069,7 @@ class MakeCTe
             $std->fone,
             true,
             "Informar o telefone da pessoa a ser contatada na empresa "
-            . "desenvolvedora do sistema."
+                . "desenvolvedora do sistema."
         );
         if (!empty($std->CSRT) && !empty($std->idCSRT)) {
             $this->csrt = $std->CSRT;
@@ -5241,7 +5241,7 @@ class MakeCTe
                     $this->conditionalNumberFormatting($std->gIBSUF_pAliqEfet ?? null),
                     true,
                     "$identificador Alíquota Efetiva do IBS de competência das UF "
-                    . "que será aplicada a Base de Cálculo (pAliqEfet)"
+                        . "que será aplicada a Base de Cálculo (pAliqEfet)"
                 );
                 $gIBSUF->appendChild($gRed);
             }
@@ -5310,7 +5310,7 @@ class MakeCTe
                     $this->conditionalNumberFormatting($std->gIBSMun_pAliqEfet ?? null),
                     true,
                     "$identificador Alíquota Efetiva do IBS de competência das UF que será aplicada "
-                    . "a Base de Cálculo (pAliqEfet)"
+                        . "a Base de Cálculo (pAliqEfet)"
                 );
                 $gIBSMun->appendChild($gRed);
             }
@@ -5322,6 +5322,16 @@ class MakeCTe
                 "$identificador Valor do IBS de competência do Município (vIBSMun)"
             );
             $gIBSCBS->appendChild($gIBSMun);
+            //Inicio RTC-1.07
+            $this->dom->addChild(
+                $gIBSCBS,
+                "gitpull",
+                $this->conditionalNumberFormatting($std->gIBSUF_vIBSUF  + $std->gIBSMun_vIBSMun?? null),
+                true,
+                "$identificador Base de cálculo do IBS e CBS (vBC)"
+            );
+            //Fim RTC-1.07
+
             //gripo de Informações da CBS
             $identificador = "UB12 <IBSCBS/gIBSCBS/gCBS> -";
             $gCBS = $this->dom->createElement("gCBS");
@@ -5378,7 +5388,7 @@ class MakeCTe
                     $this->conditionalNumberFormatting($std->gCBS_pAliqEfet ?? null),
                     true,
                     "$identificador Alíquota Efetiva do IBS de competência das UF que será aplicada "
-                    . "a Base de Cálculo (pAliqEfet)"
+                        . "a Base de Cálculo (pAliqEfet)"
                 );
                 $gCBS->appendChild($gRed);
             }
@@ -5433,7 +5443,7 @@ class MakeCTe
             $std->cClassTribReg,
             true,
             "$identificador Informar qual seria o cClassTrib caso não cumprida a condição "
-            . "resolutória/suspensiva (cClassTribReg)"
+                . "resolutória/suspensiva (cClassTribReg)"
         );
         $this->dom->addChild(
             $gTribRegular,

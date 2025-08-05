@@ -166,7 +166,8 @@ class Tools
      * @var array
      */
     protected $availableVersions = [
-        '4.00' => 'PL_CTe_400'
+        //        '4.00' => 'PL_CTe_400'
+        '4.00' => 'PL_CTe_400_RTC'
     ];
     /**
      * @var string
